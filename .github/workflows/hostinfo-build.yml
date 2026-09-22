@@ -15,7 +15,7 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v3
       
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
@@ -28,7 +28,7 @@ jobs:
     - name: Verify code builds
       run: |
         python -m py_compile python/hostinfo_server.py
-
+        
     - name: Run unit tests with coverage
       run: |
         cd python/
